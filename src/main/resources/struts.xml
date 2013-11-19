@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="stories" extends="struts-default" >
+		<interceptors>
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="appDefaultStack" />
+
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="storyFinder" class="com.marzeta.stories.action.StoryFinder">
+			<result>/storyinfo.jsp</result>
+		</action>
+
+		<action name="allStoriesFinder" class="com.marzeta.stories.action.AllStoriesFinder">
+			<result>/storiesinfo.jsp</result>
+		</action>
+
+		<action name="*StoryUpdate" class="com.marzeta.stories.action.StoryUpdater"	method="{1}">
+			<result name="input">/inputstoryupdate.jsp</result>
+			<result>/storyupdated.jsp</result>
+		</action>
+
+		<action name="storyDelete" class="com.marzeta.stories.action.StoryDeleter">
+			<result>/storydeleted.jsp</result>
+		</action>
+
+		<action name="*StorySave" class="com.marzeta.stories.action.StorySaver" method="{1}">
+			<result name="input">/inputstoriesave.jsp</result>
+			<result>/storiesaved.jsp</result>
+		</action>
+	</package>
+</struts>
