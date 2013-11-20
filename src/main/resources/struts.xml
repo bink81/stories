@@ -45,8 +45,8 @@
 		</action>
 
 		<action name="*StorySave" class="com.marzeta.stories.action.StorySaver" method="{1}">
-			<result name="input">/inputstoriesave.jsp</result>
-			<result>/storiesaved.jsp</result>
+			<result name="input">/inputstorysave.jsp</result>
+			<result>/storysaved.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -34,7 +34,7 @@
 		<a href="index.jsp">Find another story</a>
 	</p>
 	<p>
-		<a href="<s:url action='allStorysFinder'/>">Find all stories</a>.
+		<a href="<s:url action='allStoriesFinder'/>">Find all stories</a>.
 	</p>
 
 </body>
