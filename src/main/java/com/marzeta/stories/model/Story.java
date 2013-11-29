@@ -5,17 +5,19 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
 
 @Entity
 @Table(name="story")
-@NamedQuery(name=Story.STORY_FIND_BY_ID, query="from Story where id = :id")
+@NamedQueries({@NamedQuery(name=Story.STORY_FIND_BY_ID, query="from Story where id = :id"),
+@NamedQuery(name=Story.STORY_FIND_BY_NAME, query="from Story where name LIKE :nameFilter")})
 public class Story implements Serializable {
 	public static final String STORY_FIND_BY_ID = "story.findById";
+	public static final String STORY_FIND_BY_NAME = "story.findByName";
 
 	private static final long serialVersionUID = 3697535594187479699L;
 

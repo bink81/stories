@@ -33,10 +33,23 @@ public class StoryDaoJpa implements StoryDao {
 		try {
 			story = query.getSingleResult() ;
 		} catch (javax.persistence.NoResultException ex) {
-			logger.warn("No Story was found with an id " + id);
+			logger.warn("No Story was found with an id '" + id + "'");
 		}
-		
 		return story;
+	}
+	
+
+	@Override
+	public List<Story> findbyName(String nameFilter) throws DataAccessException {
+		List<Story> stories = null ;
+		TypedQuery<Story> query =  entityManager.createNamedQuery(Story.STORY_FIND_BY_NAME, STORY_CLASS);
+		query.setParameter("nameFilter", nameFilter);
+		try {
+			stories = query.getResultList() ;
+		} catch (javax.persistence.NoResultException ex) {
+			logger.warn("No Story was found with a name '" + nameFilter + "'");
+		}
+		return stories;
 	}
 
 	@Override

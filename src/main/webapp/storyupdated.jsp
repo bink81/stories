@@ -9,14 +9,16 @@
 <title>Story Updated</title>
 </head>
 <body>
-	<h3>Below are the details of the story updated.</h3>
+	<h3>Updated story:</h3>
 	<s:if test="story != null">
 		<table border="">
 		  <tr>
+		  	<th>Id</th>
 		    <th>Name</th>
 		    <th>Description</th>
 		  </tr>
 		  <tr>
+		  	<td><s:property value="story.id" /></td>
 		    <td><s:property value="story.name" /></td>
 		    <td><s:property value="story.description" /></td>
 		  </tr>

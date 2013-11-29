@@ -1,5 +1,7 @@
 package com.marzeta.stories.action;
 
+import java.util.List;
+
 import com.marzeta.stories.model.Story;
 import com.marzeta.stories.service.StoryService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -7,30 +9,14 @@ import com.opensymphony.xwork2.ActionSupport;
 public class StoryFinder extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
-	private Story story;
+	private String nameFilter;
+	private List<Story> stories;
 	private StoryService storyService;
 	
 	@Override
 	public String execute() throws Exception {
-		story = storyService.findById(id);
+		stories = storyService.findByName(getNameFilter());
 		return SUCCESS;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Story getStory() {
-		return story;
-	}
-
-	public void setStory(Story story) {
-		this.story = story;
 	}
 
 	public StoryService getStoryService() {
@@ -39,5 +25,21 @@ public class StoryFinder extends ActionSupport {
 
 	public void setStoryService(StoryService storyService) {
 		this.storyService = storyService;
+	}
+
+	public List<Story> getStories() {
+		return stories;
+	}
+
+	public void setStories(List<Story> stories) {
+		this.stories = stories;
+	}
+
+	public String getNameFilter() {
+		return nameFilter;
+	}
+
+	public void setNameFilter(String nameFilter) {
+		this.nameFilter = nameFilter;
 	}
 }

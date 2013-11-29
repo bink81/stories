@@ -6,25 +6,23 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Enter Story Id</title>
+	<title>Find Story</title>
 </head>
 
 <body>
-	<h3>Enter an Id of the story you want to find.</h3>
+	<h3>Enter a name of the story you want to see.</h3>
 
-	<s:form action="storyFinder">
-		<s:textfield name="id" label="Story Id" />
+		<s:form action="storyFinder">
+		<s:textfield name="nameFilter" label="Search for a name" tooltip="You can use Hibernate Query Language (HQL) here" />
 		<s:submit />
 	</s:form>
 
 	<p>
-		<a href="<s:url action='allStoriesFinder'/>">Find all stories</a>.
+		or <a href="<s:url action='allStoriesFinder'/>">find all stories</a>...
 	</p>
 
-	<h3>Create a new story.</h3>
-
 	<p>
-		<a href="<s:url action='inputStorySave'/>">Create a new story</a>.
+		or <a href="<s:url action='inputStorySave'/>">create a new story</a>...
 	</p>
 </body>
 </html>

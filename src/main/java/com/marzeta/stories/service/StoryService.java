@@ -6,6 +6,7 @@ import com.marzeta.stories.model.Story;
 
 public interface StoryService {
 	public Story findById(Long id);
+	public List<Story> findByName(String nameFilter);
 	public List<Story> findAll();
 	public void update(Story story);
 	public void delete(Story story);

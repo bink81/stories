@@ -9,7 +9,7 @@
 <title>Story Found</title>
 </head>
 <body>
-	<h3>Below is an overview of all stories.</h3>
+	<h3>Stories for filter: '<s:property value="nameFilter"/>'</h3>
 
 	<table border="">
 		  <tr>
