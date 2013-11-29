@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 @Entity
 @Table(name="story")
 @NamedQuery(name="story.findById", query="from Story where id = :id")
@@ -18,9 +20,17 @@ public class Story implements Serializable {
 	private String description;
 	private String name;
 	
+	// all fields should be added here
+	private ToStringBuilder createNewStringBuilder(ToStringBuilder builder) {
+		return builder.
+				append("id",  this.id). 
+				append("description",  this.description).
+				append("name", this.name);
+	}
+	
 	@Override
 	public String toString() {
-		return "Story [id=" + id + ", description=" + description + ", name=" + name + "]";
+		return createNewStringBuilder(new ToStringBuilder(this)).toString();
 	}
 
 	@Id
