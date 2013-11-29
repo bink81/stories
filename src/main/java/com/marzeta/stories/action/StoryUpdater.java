@@ -12,6 +12,17 @@ public class StoryUpdater extends ActionSupport {
 	private Long id ;
 	
 	@Override
+	public void validate() {
+		if (story.getName().length() == 0){	
+			addFieldError("story.name", "Name is mandatory.");
+		}
+				
+		if ( story.getDescription().length() == 0 ){	
+			addFieldError("story.description", "Description is mandatory.");
+		}
+	}
+	
+	@Override
 	public String input() {
 		story = storyService.findById(id);
 		return INPUT ;

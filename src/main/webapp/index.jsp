@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<h3>Enter the Id of the story you want to find.</h3>
+	<h3>Enter an Id of the story you want to find.</h3>
 
 	<s:form action="storyFinder">
 		<s:textfield name="id" label="Story Id" />

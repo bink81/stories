@@ -9,11 +9,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
 
 @Entity
 @Table(name="story")
-@NamedQuery(name="story.findById", query="from Story where id = :id")
+@NamedQuery(name=Story.STORY_FIND_BY_ID, query="from Story where id = :id")
 public class Story implements Serializable {
+	public static final String STORY_FIND_BY_ID = "story.findById";
+
 	private static final long serialVersionUID = 3697535594187479699L;
 
 	private Long id;

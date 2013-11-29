@@ -11,9 +11,16 @@
 <body>
 	<h3>Below are the details of the story updated.</h3>
 	<s:if test="story != null">
-		<p>
-			<s:property value="story" />
-		</p>
+		<table border="">
+		  <tr>
+		    <th>Name</th>
+		    <th>Description</th>
+		  </tr>
+		  <tr>
+		    <td><s:property value="story.name" /></td>
+		    <td><s:property value="story.description" /></td>
+		  </tr>
+		</table>
 	</s:if>
 
 	<s:else>

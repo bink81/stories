@@ -9,29 +9,39 @@
 <title>Story Found</title>
 </head>
 <body>
-	<h3>Below are the details for all the stories.</h3>
+	<h3>Below is an overview of all stories.</h3>
 
-	<s:iterator value="stories">
-		<s:url action="inputStoryUpdate" id="editUrl">
-			<s:param name="id" value="id" />
-		</s:url>
-
-		<s:url action="storyDelete" id="deleteUrl">
-			<s:param name="id" value="id" />
-		</s:url>
-
-		<%--if value attribute is not specified
-		the property tag will call the toString method
-		of each Story object in the stories collection. --%>
-		<p>
-			<s:property />
-			<a href="<s:property value="#editUrl"/>">Edit</a> &nbsp;&nbsp; <a
-				href="<s:property value="#deleteUrl"/>">Delete</a>
-		</p>
-	</s:iterator>
+	<table border="">
+		  <tr>
+		  	<th>Id</th>
+		    <th>Name</th>
+		    <th>Description</th>
+		    <th>Actions</th>
+		  </tr>
+			<s:iterator value="stories">
+				<s:url action="inputStoryUpdate" id="editUrl">
+					<s:param name="id" value="id" />
+				</s:url>
+			
+				<s:url action="storyDelete" id="deleteUrl">
+					<s:param name="id" value="id" />
+				</s:url>
+				
+	  		<tr>
+					<td><s:property value="id"/></td>
+					<td><s:property value="name"/></td>
+					<td><s:property value="description"/></td>
+					<td>
+							<a href="<s:property value="#editUrl"/>">Edit</a>
+							&nbsp;&nbsp; 
+							<a href="<s:property value="#deleteUrl"/>">Delete</a>
+					</td>
+			  </tr>
+			</s:iterator>
+		</table>
 
 	<p>
-		<a href="<s:url action='inputStorySave'/>">Create a new story</a>.
+		<a href="<s:url action='inputStorySave'/>">Create a new story</a>
 	</p>
 
 	<p>

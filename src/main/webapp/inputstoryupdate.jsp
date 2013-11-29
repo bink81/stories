@@ -13,8 +13,8 @@
 
 	<s:if test="story != null">
 		<s:form action="executeStoryUpdate" method="post">
-			<s:textfield name="story.name" label="name" />
-			<s:textfield name="story.description" label="description" />
+			<s:textfield name="story.name" label="Name" required="yes" size="136" />
+			<s:textarea name="story.description" label="Description" cols="100" rows="20" />
 			<s:hidden name="story.id" />
 			<s:submit />
 		</s:form>

@@ -21,13 +21,13 @@
 		</s:url>
 
 		<p>
-			<s:property value="story" />
+			<s:property value="story.name" />
 			<a href="<s:property value="#editUrl"/>">Edit</a> &nbsp;&nbsp; <a
 				href="<s:property value="#deleteUrl"/>">Delete</a>
 		</p>
 	</s:if>
 	<s:else>
-		<p>No story was found.</p>
+		<p>No story was found for id: '<s:property value="id" />'</p>
 	</s:else>
 
 	<p>

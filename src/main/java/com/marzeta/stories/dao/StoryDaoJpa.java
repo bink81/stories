@@ -14,6 +14,8 @@ import com.marzeta.stories.model.Story;
 
 @Repository("storyDao")
 public class StoryDaoJpa implements StoryDao {
+	private static final Class<Story> STORY_CLASS = Story.class;
+
 	private static final Logger logger = Logger.getLogger(StoryDaoJpa.class.getName());
 	
 	private EntityManager entityManager;
@@ -26,7 +28,7 @@ public class StoryDaoJpa implements StoryDao {
 	@Override
 	public Story findbyId(Long id) throws DataAccessException {
 		Story story = null ;
-		TypedQuery<Story> query =  entityManager.createNamedQuery("story.findById", Story.class);
+		TypedQuery<Story> query =  entityManager.createNamedQuery(Story.STORY_FIND_BY_ID, STORY_CLASS);
 		query.setParameter("id", id);
 		try {
 			story = query.getSingleResult() ;
@@ -39,7 +41,7 @@ public class StoryDaoJpa implements StoryDao {
 
 	@Override
 	public List<Story> findAll() {
-		TypedQuery<Story> query = entityManager.createQuery("from " + Story.class.getName(), Story.class);
+		TypedQuery<Story> query = entityManager.createQuery("from " + STORY_CLASS.getName(), STORY_CLASS);
 		List<Story> stories = query.getResultList();
 		return stories;
 	}

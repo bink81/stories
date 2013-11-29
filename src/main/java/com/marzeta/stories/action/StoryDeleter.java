@@ -8,8 +8,8 @@ public class StoryDeleter extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private StoryService StoryService;
-	private Story story ;
-	private Long id ;
+	private Story story;
+	private Long id;
 
 	@Override
 	public String execute() {

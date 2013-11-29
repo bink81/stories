@@ -18,12 +18,12 @@ public class StorySaver extends ActionSupport {
 	
 	@Override
 	public void validate() {
-		if ( story.getDescription().length() == 0 ){	
-			addFieldError( "story.name", "Name is required." );
+		if (story.getName().length() == 0){	
+			addFieldError("story.name", "Name is mandatory.");
 		}
 				
-		if ( story.getName().length() == 0 ){	
-			addFieldError( "story.description", "Description is required." );
+		if ( story.getDescription().length() == 0 ){	
+			addFieldError("story.description", "Description is mandatory.");
 		}
 	}
 
