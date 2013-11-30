@@ -1,17 +1,17 @@
 This project uses Spring, Struts2, Hibernate (in-memory), and jetty to create reading stories.
 
 1. Prerequisites: 
-Maven and Java
+Maven
 
 2. Execution
-After downloading the sources code, you may test is with:
+a) after downloading the source code, you may test is with:
 	mvn clean verify
 
-Then run with
+b) run the service on your local machine with:
 	mvn jetty:run
-and access in local url:
+c) access with url:
 	http://localhost:8080/stories/index.jsp
 
 3. TODO:
-- introduce sub-acts in stories
-- add pictures
+- introduce acts inside stories
+- add pictures and configurable graphics
