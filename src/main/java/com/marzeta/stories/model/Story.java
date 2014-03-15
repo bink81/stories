@@ -13,8 +13,10 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity
 @Table(name="story")
-@NamedQueries({@NamedQuery(name=Story.STORY_FIND_BY_ID, query="from Story where id = :id"),
-@NamedQuery(name=Story.STORY_FIND_BY_NAME, query="from Story where name LIKE :nameFilter")})
+@NamedQueries({
+	@NamedQuery(name=Story.STORY_FIND_BY_ID, query="from Story where id = :id"),
+	@NamedQuery(name=Story.STORY_FIND_BY_NAME, query="from Story where name LIKE :nameFilter")
+})
 public class Story implements Serializable {
 	public static final String STORY_FIND_BY_ID = "story.findById";
 	public static final String STORY_FIND_BY_NAME = "story.findByName";
