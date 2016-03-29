@@ -28,7 +28,7 @@
 		</global-exception-mappings>
 
 		<action name="storyFinder" class="com.marzeta.stories.action.StoryFinder">
-			<result>/storiesinfo.jsp</result>
+			<result>/storyinfo.jsp</result>
 		</action>
 
 		<action name="storyFinderByNameFilter" class="com.marzeta.stories.action.StoryFinderByNameFilter">

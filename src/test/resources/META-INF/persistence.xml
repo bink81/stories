@@ -6,7 +6,7 @@
 	<persistence-unit name="springJpaPersistenceUnit_TEST"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.marzeta.stories.model.Story</class>
+		<class>com.marzeta.stories.model.StoryEntity</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="validate" />

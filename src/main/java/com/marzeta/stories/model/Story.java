@@ -2,30 +2,22 @@ package com.marzeta.stories.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-@Entity
-@Table(name = "story")
-@NamedQueries({
-		@NamedQuery(name = Story.STORY_FIND_BY_ID, query = "select s from Story s where s.id = :id"),
-		@NamedQuery(name = Story.STORY_FIND_BY_NAME_FILTER, query = "select s from Story s where s.name LIKE :nameFilter")
-})
 public class Story implements Serializable {
-	public static final String STORY_FIND_BY_ID = "story.findById";
-	public static final String STORY_FIND_BY_NAME_FILTER = "story.findByNameFilter";
-
-	private static final long serialVersionUID = 3697535594187479699L;
-
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String description;
 	private String name;
+
+	public Story() {
+	}
+
+	public Story(Long id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+	}
 
 	// all fields should be added here
 	private ToStringBuilder createNewStringBuilder(ToStringBuilder builder) {
@@ -37,8 +29,6 @@ public class Story implements Serializable {
 		return createNewStringBuilder(new ToStringBuilder(this)).toString();
 	}
 
-	@Id
-	@GeneratedValue
 	public Long getId() {
 		return id;
 	}

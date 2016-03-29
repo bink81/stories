@@ -22,7 +22,7 @@ public class StoryServiceImpl implements StoryService {
 
 	@Override
 	public List<Story> findByNameFilter(String nameFilter) {
-		return storyDao.findbyName(nameFilter);
+		return storyDao.findbyNameFilter(nameFilter);
 	}
 
 	public StoryDao getStoryDao() {

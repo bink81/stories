@@ -15,7 +15,7 @@ import com.marzeta.stories.model.Story;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class StoryServiceTest {
 
-	private static final Logger LOGGER = Logger.getLogger(StoryServiceTest.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(StoryServiceTest.class);
 
 	@Autowired
 	StoryService storyService;

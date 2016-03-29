@@ -20,7 +20,7 @@ import com.marzeta.stories.model.Story;
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @Transactional
 public class StoryDaoDeleteTest {
-	private static final Logger LOGGER = Logger.getLogger(StoryDaoDeleteTest.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(StoryDaoDeleteTest.class);
 
 	@Autowired
 	StoryDao storyDao;
