@@ -30,8 +30,9 @@ public class StoryDaoJpa implements StoryDao {
 		try {
 			return query.getSingleResult();
 		} catch (javax.persistence.NoResultException ex) {
-			throw new RuntimeException("No result for id " + id, ex);
+			LOGGER.warn("No result for id " + id, ex);
 		}
+		return null;
 	}
 
 	@Override

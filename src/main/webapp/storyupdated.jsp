@@ -4,6 +4,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<<<<<<< HEAD
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Story Updated</title>
@@ -36,4 +37,39 @@
 			<a href="<s:url action='allStoriesFinder'/>">Find all stories</a>.
 		</p>
 	</body>
+=======
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Story Updated</title>
+</head>
+<body>
+	<h3>Updated story:</h3>
+	<s:if test="story != null">
+		<table border="">
+		  <tr>
+		  	<th>Id</th>
+		    <th>Name</th>
+		    <th>Description</th>
+		  </tr>
+		  <tr>
+		  	<td><s:property value="story.id" /></td>
+		    <td><s:property value="story.name" /></td>
+		    <td><s:property value="story.description" /></td>
+		  </tr>
+		</table>
+	</s:if>
+
+	<s:else>
+		<p>No story was found to update.</p>
+	</s:else>
+
+	<p>
+		<a href="index.jsp">Find another story</a>
+	</p>
+	<p>
+		<a href="<s:url action='allStoriesFinder'/>">Find all stories</a>.
+	</p>
+
+</body>
+>>>>>>> branch 'master' of https://github.com/bink81/stories.git
 </html>

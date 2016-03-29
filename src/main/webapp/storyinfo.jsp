@@ -38,12 +38,11 @@
 		<s:else>
 			<p>No story was found for id: '<s:property value="id" />'</p>
 		</s:else>
-	
 		<p>
 			<a href="index.jsp">Find another story</a>
 		</p>
 		<p>
-			<a href="<s:url action='allStoriesFinder'/>">Find all stories</a>
+			<a href="<s:url action='allStoriesFinder'/>">Find all stories</a>.
 		</p>
 	
 	</body>
