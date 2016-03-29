@@ -31,6 +31,10 @@
 			<result>/storyinfo.jsp</result>
 		</action>
 
+		<action name="storyFinderByNameFilter" class="com.marzeta.stories.action.StoryFinderByNameFilter">
+			<result>/storiesinfo.jsp</result>
+		</action>
+
 		<action name="allStoriesFinder" class="com.marzeta.stories.action.AllStoriesFinder">
 			<result>/storiesinfo.jsp</result>
 		</action>

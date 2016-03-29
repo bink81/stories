@@ -14,8 +14,8 @@ import com.marzeta.stories.model.Story;
 
 @Repository("storyDao")
 public class StoryDaoJpa implements StoryDao {
-	private static final Logger logger = Logger.getLogger(StoryDaoJpa.class.getName());
-	
+	private static final Logger LOGGER = Logger.getLogger(StoryDaoJpa.class.getName());
+
 	private EntityManager entityManager;
 
 	@PersistenceContext
@@ -25,16 +25,26 @@ public class StoryDaoJpa implements StoryDao {
 
 	@Override
 	public Story findbyId(Long id) throws DataAccessException {
-		Story story = null ;
-		TypedQuery<Story> query =  entityManager.createNamedQuery("story.findById", Story.class);
+		TypedQuery<Story> query = entityManager.createNamedQuery(Story.STORY_FIND_BY_ID, Story.class);
 		query.setParameter("id", id);
 		try {
-			story = query.getSingleResult() ;
+			return query.getSingleResult();
 		} catch (javax.persistence.NoResultException ex) {
-			logger.warn("No Story was found with an id " + id);
+			throw new RuntimeException("No result for id " + id, ex);
 		}
-		
-		return story;
+	}
+
+	@Override
+	public List<Story> findbyName(String nameFilter) throws DataAccessException {
+		List<Story> stories = null;
+		TypedQuery<Story> query = entityManager.createNamedQuery(Story.STORY_FIND_BY_NAME_FILTER, Story.class);
+		query.setParameter("nameFilter", nameFilter);
+		try {
+			stories = query.getResultList();
+		} catch (javax.persistence.NoResultException ex) {
+			LOGGER.warn("No Story was found with a nameFilter '" + nameFilter + "'");
+		}
+		return stories;
 	}
 
 	@Override

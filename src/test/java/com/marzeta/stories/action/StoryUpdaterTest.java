@@ -1,19 +1,12 @@
 package com.marzeta.stories.action;
 
-import org.apache.struts2.StrutsSpringTestCase;
-
 import com.marzeta.stories.action.StoryUpdater;
 import com.marzeta.stories.model.Story;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class StoryUpdaterTest extends StrutsSpringTestCase {
+public class StoryUpdaterTest extends CommonContextTestCase {
 	private static final String NEW_DESCRIPTION = "New descripion";
 	private static final String NEW_NAME = "Another Snow White";
-
-	@Override
-	public String getContextLocations() {
-		return "applicationContextTest.xml";
-	}
 
 	public void testInput() throws Exception {
 		request.setParameter("id", "1");

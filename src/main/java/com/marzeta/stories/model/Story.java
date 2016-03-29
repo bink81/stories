@@ -5,22 +5,36 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 @Entity
-@Table(name="story")
-@NamedQuery(name="story.findById", query="from Story where id = :id")
+@Table(name = "story")
+@NamedQueries({
+		@NamedQuery(name = Story.STORY_FIND_BY_ID, query = "select s from Story s where s.id = :id"),
+		@NamedQuery(name = Story.STORY_FIND_BY_NAME_FILTER, query = "select s from Story s where s.name LIKE :nameFilter")
+})
 public class Story implements Serializable {
+	public static final String STORY_FIND_BY_ID = "story.findById";
+	public static final String STORY_FIND_BY_NAME_FILTER = "story.findByNameFilter";
+
 	private static final long serialVersionUID = 3697535594187479699L;
 
 	private Long id;
 	private String description;
 	private String name;
-	
+
+	// all fields should be added here
+	private ToStringBuilder createNewStringBuilder(ToStringBuilder builder) {
+		return builder.append("id", this.id).append("description", this.description).append("name", this.name);
+	}
+
 	@Override
 	public String toString() {
-		return "Story [id=" + id + ", description=" + description + ", name=" + name + "]";
+		return createNewStringBuilder(new ToStringBuilder(this)).toString();
 	}
 
 	@Id
@@ -45,8 +59,8 @@ public class Story implements Serializable {
 		return name;
 	}
 
-	public void setName(String last_name) {
-		this.name = last_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override

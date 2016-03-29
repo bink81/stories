@@ -1,18 +1,11 @@
 package com.marzeta.stories.action;
 
-import org.apache.struts2.StrutsSpringTestCase;
-
 import com.marzeta.stories.action.StorySaver;
 import com.marzeta.stories.model.Story;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class StorySaverTest extends StrutsSpringTestCase {
+public class StorySaverTest extends CommonContextTestCase {
 	private static final String NEW_DESC = "NewDesc";
-
-	@Override
-	public String getContextLocations() {
-		return "applicationContextTest.xml";
-	}
 
 	public void testInput() throws Exception {
 		ActionProxy proxy = getActionProxy("inputStorySave");

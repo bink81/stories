@@ -6,11 +6,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class StoryFinder extends ActionSupport {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
 	private Story story;
 	private StoryService storyService;
-	
+
 	@Override
 	public String execute() throws Exception {
 		story = storyService.findById(id);

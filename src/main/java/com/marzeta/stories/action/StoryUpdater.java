@@ -8,13 +8,24 @@ public class StoryUpdater extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private StoryService storyService;
-	private Story story ;
-	private Long id ;
-	
+	private Story story;
+	private Long id;
+
+	@Override
+	public void validate() {
+		if (story.getName().isEmpty()) {
+			addFieldError("story.name", "Name must not be empty");
+		}
+
+		if (story.getDescription().isEmpty()) {
+			addFieldError("story.description", "Description must not be empty");
+		}
+	}
+
 	@Override
 	public String input() {
 		story = storyService.findById(id);
-		return INPUT ;
+		return INPUT;
 	}
 
 	@Override

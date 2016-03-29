@@ -1,6 +1,7 @@
 package com.marzeta.stories.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -13,7 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.marzeta.stories.dao.StoryDao;
 import com.marzeta.stories.model.Story;
 
 @ContextConfiguration(locations = { "classpath:applicationContextTest.xml" })
@@ -21,7 +21,7 @@ import com.marzeta.stories.model.Story;
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @Transactional
 public class StoryDaoTest {
-	private static final Logger logger = Logger.getLogger(StoryDaoTest.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(StoryDaoTest.class.getName());
 
 	@Autowired
 	StoryDao storyDao;
@@ -30,13 +30,13 @@ public class StoryDaoTest {
 	public void testFindbyId() {
 		Story story = storyDao.findbyId(new Long("1"));
 		assertNotNull("Story object is null but should not be.", story);
-		logger.info("Story state is " + story);
+		LOGGER.info("Story state is " + story);
 	}
 
 	@Test
 	public void testFindAll() {
 		List<Story> stories = storyDao.findAll();
-		assertEquals("The number of stories found is not 3 but should be.",	3, stories.size());
+		assertEquals("The number of stories found is not 3 but should be.", 3, stories.size());
 	}
 
 	@Test
@@ -48,6 +48,6 @@ public class StoryDaoTest {
 		List<Story> stories = storyDao.findAll();
 
 		assertEquals("The number of stories found is not 4 but should be.", 4, stories.size());
-		logger.info("Story state is " + story);
+		LOGGER.info("Story state is " + story);
 	}
 }

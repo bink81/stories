@@ -1,16 +1,9 @@
 package com.marzeta.stories.action;
 
-import org.apache.struts2.StrutsSpringTestCase;
-
-import com.marzeta.stories.action.StoryFinder;
 import com.marzeta.stories.model.Story;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class StoryFinderTest extends StrutsSpringTestCase {
-	@Override
-	public String getContextLocations() {
-		return "applicationContextTest.xml";
-	}
+public class StoryFinderTest extends CommonContextTestCase {
 
 	public void testExecute() throws Exception {
 		request.setParameter("id", "1");

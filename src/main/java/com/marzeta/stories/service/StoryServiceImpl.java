@@ -20,6 +20,11 @@ public class StoryServiceImpl implements StoryService {
 		return storyDao.findbyId(id);
 	}
 
+	@Override
+	public List<Story> findByNameFilter(String nameFilter) {
+		return storyDao.findbyName(nameFilter);
+	}
+
 	public StoryDao getStoryDao() {
 		return storyDao;
 	}

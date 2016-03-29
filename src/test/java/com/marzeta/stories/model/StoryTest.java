@@ -1,25 +1,19 @@
 package com.marzeta.stories.model;
 
-import java.util.Set;
-
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
+
 public class StoryTest {
 
+	private static final Long STORY_ID = new Long(10);
 	private Story story;
 
 	@Before
 	public void setUp() throws Exception {
-		Story story2 = new Story();
-		initId(story2);
-		setStory(story2);
-	}
-
-	private void initId(Story story2) {
-		story2.setId(new Long(10));
+		story = new Story();
+		story.setId(STORY_ID);
 	}
 
 	@Test
@@ -42,22 +36,18 @@ public class StoryTest {
 		story.setName(expected);
 		Assert.assertEquals(expected, story.getName());
 	}
-	
+
 	public Story getStory() {
 		return story;
-	}
-	
-	public void setStory(Story story) {
-		this.story = story;
 	}
 
 	@Test
 	public void testHashCode() throws Exception {
 		int hash = story.hashCode();
 		story.setName("sth");
-		Assert.assertNotSame(hash,story.hashCode());
+		Assert.assertNotSame(hash, story.hashCode());
 	}
-	
+
 	@Test
 	public void testDifferent() throws Exception {
 		Story story2 = new Story();
@@ -68,8 +58,8 @@ public class StoryTest {
 	@Test
 	public void testSame() throws Exception {
 		Story story2 = new Story();
-		initId(story2);
-		
+		story2.setId(STORY_ID);
+
 		Assert.assertTrue(story.equals(story2));
 	}
 }

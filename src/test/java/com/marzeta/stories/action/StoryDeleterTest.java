@@ -1,16 +1,9 @@
 package com.marzeta.stories.action;
 
-import org.apache.struts2.StrutsSpringTestCase;
-
 import com.marzeta.stories.action.StoryDeleter;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class StoryDeleterTest extends StrutsSpringTestCase {
-	
-	@Override
-	public String getContextLocations() {
-		return "applicationContextTest.xml";
-	}
+public class StoryDeleterTest extends CommonContextTestCase {
 	
 	public void testExecute() throws Exception {
 		request.setParameter("id", "3");

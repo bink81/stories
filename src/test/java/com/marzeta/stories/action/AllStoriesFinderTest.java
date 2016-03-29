@@ -3,20 +3,14 @@ package com.marzeta.stories.action;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.apache.struts2.StrutsSpringTestCase;
 import org.junit.Test;
 
 import com.marzeta.stories.model.Story;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class AllStoriesFinderTest extends StrutsSpringTestCase {
-	private static final Logger logger = Logger.getLogger(AllStoriesFinderTest.class.getName());
+public class AllStoriesFinderTest extends CommonContextTestCase {
+	private static final Logger LOGGER = Logger.getLogger(AllStoriesFinderTest.class.getName());
 	
-	@Override
-	public String getContextLocations() {
-		return "applicationContextTest.xml";
-	}
-
 	@Test
 	public void testExecute() throws Exception {
 		ActionProxy proxy = getActionProxy("allStoriesFinder");
@@ -27,7 +21,7 @@ public class AllStoriesFinderTest extends StrutsSpringTestCase {
 		List<Story> stories = action.getStories() ;
 		assertEquals("The number of stories found is not 3 but should be.", 3, stories.size());
 		for (Story story : stories) {
-			logger.info(story);
+			LOGGER.info(story);
 		}
 	}
 }
